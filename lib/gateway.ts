@@ -3,7 +3,7 @@ interface Customer {
   name: string;
 }
 
-export class Orchestrate {
+export class Gateway {
   static readonly API_KEY = process.env.ORCHESTRATE_API_KEY;
 
   static async post(path: string, options: { json: unknown }) {
@@ -11,7 +11,7 @@ export class Orchestrate {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + Orchestrate.API_KEY,
+        Authorization: "Bearer " + Gateway.API_KEY,
       },
       body: JSON.stringify(options.json),
     });
@@ -22,7 +22,7 @@ export class Orchestrate {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + Orchestrate.API_KEY,
+        Authorization: "Bearer " + Gateway.API_KEY,
       },
       body: JSON.stringify(options.json),
     });
